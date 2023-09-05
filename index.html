@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GitHub Explorer</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div class="heading">
+        <div class="logo">
+          <img src="./assets/github.svg" alt="" />
+        </div>
+        <div>Explorer</div>
+      </div>
+      <div class="search-bar">
+        <form id="form" onsubmit="return formSubmit()">
+          <input
+            autofocus
+            type="text"
+            name="username"
+            id="username"
+            placeholder="Search for username"
+          />
+        </form>
+      </div>
+      <div class="loader"></div>
+      <div class="card"></div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>

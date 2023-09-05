@@ -1,0 +1,247 @@
+/* CSS Variables */
+:root{
+    --primary-color: #F14D06;
+}
+
+/* Font Faces */
+@font-face {
+    font-family: 'MonaSans';
+    src: url('./assets/MonaSans-Regular.ttf');
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+
+/* Scrollbar */
+::-webkit-scrollbar{
+    width: 17px;
+}
+
+::-webkit-scrollbar-track{
+    background:#262626;
+}
+
+::-webkit-scrollbar-thumb{
+    background: #eee;
+    border-radius: 1rem;
+    border: 4px solid #262626;
+}
+
+
+/* Main CSS */
+
+html{
+    background: linear-gradient(305deg, rgba(27, 27, 27, 1) 0%, rgba(40, 40, 40, 1) 36%, rgba(42, 42, 42, 1) 100%);
+}
+
+body{
+    font-family: 'MonaSans';
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(305deg, rgba(27, 27, 27, 1) 0%, rgba(40, 40, 40, 1) 36%, rgba(42, 42, 42, 1) 100%);
+    min-height: 100vh;
+}
+
+.heading .logo img{
+    width: 12rem;
+}
+
+#app {
+    animation: fadeIn forwards 0.7s ease-in-out;
+    width: 60%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    padding: 3rem;
+    padding-top: 5rem;
+}
+
+
+.heading{
+    user-select: none;
+    -webkit-user-drag: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.heading > div:nth-child(2){
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.search-bar{
+    width: 100%;
+    text-align: center;
+}
+
+.search-bar  input{
+    font-family: inherit;
+    color: #333;
+    font-weight: bold;
+    width: 50%;
+    outline: none;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px auto;
+    font-size: 1rem;
+    border-radius: 2rem;    
+    transition: 0.3s;
+}
+
+.search-bar  input:focus{
+    box-shadow: #c9c9c9b2 0px 0px 15px;
+}
+
+
+.search-details{
+    width: 70%;
+    padding: 1rem;
+    background: linear-gradient(305deg, rgba(54, 54, 54, 1) 0%, rgba(83, 83, 83, 1) 36%);
+    border-radius: 1rem;
+    display: flex;
+    gap: 2rem;
+    padding: 2rem;
+    justify-content: space-around;
+    box-shadow: #00000070 0px 0px 25px;
+    color: #111;
+    margin: 0 auto;
+}
+
+.search-details .left .user-image img{
+    border-radius: 50%;
+    width: 10rem;
+    border: 0.5rem solid var(--primary-color);
+}
+
+.search-details .right{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    padding-right:4rem;
+}
+
+.left{
+    padding: 0 2rem;
+}
+
+.right .user-name{
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+}
+
+.right .user-details .user-info{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+.user-info strong{
+    margin: 0 5px;
+}
+
+.right .user-details{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.repo{
+    background: var(--primary-color);
+    border-radius: 10px;
+    padding: 5px 7px;
+    font-size: var(--primary-color);
+    color: white;
+    width: max-content;
+    text-decoration: none;
+    text-align: center;
+}
+
+.user-repos{
+    margin-top: 10px;
+    font-size: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+
+.loader.show{
+    display: block;
+}
+
+
+.loader {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    position: relative;
+    animation: rotate 1s linear infinite;
+    display: none;
+    
+}
+
+.loader::before,
+.loader::after {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    inset: 0px;
+    border-radius: 50%;
+    border: 5px solid #FFF;
+    animation: prixClipFix 2s linear infinite;
+}
+
+.loader::after {
+    border-color: #FF3D00;
+    animation: prixClipFix 2s linear infinite, rotate 0.5s linear infinite reverse;
+    inset: 6px;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg)
+    }
+
+    100% {
+        transform: rotate(360deg)
+    }
+}
+
+@keyframes prixClipFix {
+    0% {
+        clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0)
+    }
+
+    25% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0)
+    }
+
+    50% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%)
+    }
+
+    75% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%)
+    }
+
+    100% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0)
+    }
+}
