@@ -86,7 +86,18 @@ body{
 .search-bar{
     width: 100%;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+.search-bar form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
 
 .search-bar  input{
     font-family: inherit;
@@ -114,11 +125,11 @@ body{
     border-radius: 1rem;
     display: flex;
     gap: 2rem;
-    padding: 2rem;
     justify-content: space-around;
     box-shadow: #00000070 0px 0px 25px;
     color: #111;
     margin: 0 auto;
+    padding: 2rem 4rem;
 }
 
 .search-details .left .user-image img{
@@ -143,6 +154,7 @@ body{
     font-size: 1.5rem;
     font-weight: bold;
     color: white;
+    text-decoration: none;
 }
 
 .right .user-details .user-info{
@@ -154,6 +166,10 @@ body{
 
 .user-info strong{
     margin: 0 5px;
+}
+
+.user-details .user-bio{
+    color: #e0e0e0;
 }
 
 .right .user-details{
@@ -243,5 +259,47 @@ body{
 
     100% {
         clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0)
+    }
+}
+
+@media only screen and (max-width: 480px){
+
+    #app{
+        width: 70%;
+        margin: 0 auto;
+        overflow-x: hidden;
+    }
+
+    .search-bar input {
+        width: 100%;
+        margin:  0 auto;
+    }
+
+    .heading > div:nth-child(2){
+        font-size: 2rem;
+    }
+    .search-details{
+        width: 80%;
+        flex-direction: column;
+    }
+
+    .search-details .left,
+    .search-details .left .user-image{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .search-details .left .user-image img{
+        width: 60%;
+        border-width: 0.2rem;
+    }
+
+    .search-details .right{
+        padding: 0;
+    }
+
+    .search-details .user-details {
+        gap: 1rem;
     }
 }
