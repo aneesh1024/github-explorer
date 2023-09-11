@@ -2,12 +2,13 @@ const API_URL = "https://api.github.com/users/";
 const app = document.querySelector("#app");
 const cardBox = document.querySelector(".card");
 const loader = document.querySelector(".loader");
+
 const getUser = async (username) => {
   cardBox.innerHTML = "";
   loader.classList.add("show");
   const response = await fetch(API_URL + username);
   const data = await response.json();
-
+  console.log(data);
   const card = `
         <div class="search-details">
           <div class="left">
@@ -19,7 +20,7 @@ const getUser = async (username) => {
             </div>
           </div>
           <div class="right">
-            <div class="user-name">${data.name}</div>
+            <a href="${data.html_url}" class="user-name">${data.name}</a>
             <div class="user-details">
               <div class="user-bio">${data.bio}</div>
               <div class="user-info">
@@ -68,4 +69,7 @@ const formSubmit = () => {
 
 searchBox.addEventListener("focusout", () => {
   formSubmit();
+  if (searchBox.value === "") {
+    loader.classList.remove("show");
+  }
 });
